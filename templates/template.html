@@ -190,6 +190,65 @@ h2 {
     object-fit: contain;
     margin-right: 0.5rem;
 }
+/* Base styles */
+/* ... Your existing CSS ... */
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 10px;
+    }
+
+    .header img {
+        max-width: 100%;
+        margin-right: 10px;
+    }
+
+    .stats-grid, .info-grid {
+        grid-template-columns: 1fr; /* Stacks grid items on small screens */
+        gap: 10px;
+    }
+
+    .stock-info h2, h2 {
+        font-size: 20px;
+    }
+
+    .header, .stock-info, .chart, .key-stats, .about {
+        padding: 10px;
+    }
+
+    .refresh-button {
+        top: 20px;
+        left: 0;
+        margin-right: 10%;
+    }
+
+    .stock-logo {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .header span {
+        font-size: 12px;
+    }
+
+    .refresh-button {
+        margin-right: 5%;
+    }
+}
+
 </style>
 </head>
 <!--HI-->
