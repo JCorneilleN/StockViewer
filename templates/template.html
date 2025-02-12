@@ -8,248 +8,9 @@
     <link rel = "stylesheet" href = "{{url_for('static', filename='/template.css')}}">
     <script
       type="text/javascript"
-      src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"
-    ></script>
-<style>
+      src="https://unpkg.com/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.js">
+    </script>
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 100px;
-    padding: 0;
-    background-color: #ffffff;
-
-}
-
-.container {
-    max-width: 100%;
-    margin: 50px auto;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.header img {
-    max-width: 25%;
-   /* background-color: #000;*/
-    border-radius: 50%;
-    margin-right: 20px;
-}
-
-.header h1 {
-    font-size: 24px;
-}
-
-.header span {
-    font-size: 14px;
-    margin-right: 20px;
-}
-
-.icons, .footer-icons {
-    display: flex;
-    gap: 10px;
-}
-
-button {
-    background-color: #ebebeb;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #d0d0d0;
-}
-
-.tabs button.active {
-    background-color: #007BFF;
-    color: #ffffff;
-}
-
-.stock-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px 0;
-}
-
-.stock-info h2 {
-    font-size: 36px;
-}
-
-.chart h3 {
-    font-size: 18px;
-    margin-top: 20px;
-}
-
-/* ... Previous CSS ... */
-
-.key-stats, .about {
-    margin-top: 40px;
-    background-color: #ffffff;
-}
-
-h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 10px;
-}
-
-.stats-grid, .info-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.stats-grid div, .info-grid div {
-    display: flex;
-    justify-content: space-between;
-    font-size: 16px;
-    align-items: center;
-    border-right: 1px solid #e0e0e0;
-    padding-right: 10px;
-}
-
-.stats-grid span, .info-grid span {
-    font-weight: bold;
-    color: #333;
-}
-
-.text h1 {
-    margin: 0;
-    font-size: 2em;
-     padding: 0;
-}
-.text p {
-    margin: 0;
-    color: gray;
-    font-size: 1em;
-    padding: 0;
-}
-
-.info-grid span {
-    padding-right: 10px; /* Adjust as needed for the desired padding */
-}
-
-.logo {
-    max-width: 100px; /* Adjust as needed */
-    max-height: 100px;
-    margin-right: 15em;
-}
-.refresh-button
- {
-    position: relative;
-    top: 60px;
-    left: -110px;
-    background-color: #3498db; /* Blue color */
-    color: white; /* Text color */
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    transition: background-color 0.3s; /* Add transition for smooth effect */
-    margin-right: 64%;
-}
-
-.container p{
-    padding-bottom: 30px;
-}
-.container h1{
-    padding: 5px 15px 0px 10px;
-}
-.refresh-button:hover {
-    background-color: #dde2e7; /* Change color on hover to white */
-    color: #3498db; /* Change text color on hover to blue */
-}
-
-
-.info-grid div {
-    margin-right: 2%;
-}
-/*Hamburger*/
-.dropdown-item:hover {
-
-        background-color: lightblue;
-    }
-.stock-logo {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    margin-right: 0.5rem;
-}
-/* Base styles */
-/* ... Your existing CSS ... */
-
-/* Responsive Media Queries */
-@media (max-width: 768px) {
-    .container {
-        margin: 20px;
-        padding: 10px;
-    }
-
-    .header img {
-        max-width: 100%;
-        margin-right: 10px;
-    }
-
-    .stats-grid, .info-grid {
-        grid-template-columns: 1fr; /* Stacks grid items on small screens */
-        gap: 10px;
-    }
-
-    .stock-info h2, h2 {
-        font-size: 20px;
-    }
-
-    .header, .stock-info, .chart, .key-stats, .about {
-        padding: 10px;
-    }
-
-    .refresh-button {
-        top: 20px;
-        left: 0;
-        margin-right: 10%;
-    }
-
-    .stock-logo {
-        width: 50px;
-        height: 50px;
-    }
-}
-
-@media (max-width: 480px) {
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .header h1 {
-        font-size: 20px;
-    }
-
-    .header span {
-        font-size: 12px;
-    }
-
-    .refresh-button {
-        margin-right: 5%;
-    }
-}
-
-</style>
 </head>
 <!--HI-->
 <body>
@@ -511,12 +272,12 @@ h2 {
                 const high = data.value !== undefined ? data.value : data.high;
 
                 toolTip.innerHTML = `<div style="color: ${'#9B7DFF'}">{{stock['name']}}</div><div style="font-size: 24px; margin: 4px 0px; color: ${'white'}">
-                    $${Math.round(100 * price) / 100}
+                    ${Math.round(100 * price) / 100}
                     </div>
                     <div style="color: ${'white'}">Trading day: ${dateStr}</div>
-                    <div style="color: ${'#9B7DFF'}">Open price: $${open}</div>
-                    <div style="color: ${'#9B7DFF'}">Low price: $${low}</div>
-                    <div style="color: ${'#9B7DFF'}">High price: $${high}</div>`;
+                    <div style="color: ${'#9B7DFF'}">Open price: ${open}</div>
+                    <div style="color: ${'#9B7DFF'}">Low price: ${low}</div>
+                    <div style="color: ${'#9B7DFF'}">High price: ${high}</div>`;
 
                 const coordinate = mainSeries.priceToCoordinate(price);
                 let shiftedCoordinate = param.point.x - 50;
@@ -552,11 +313,11 @@ h2 {
 <div class="key-stats">
     <h2>Key stats</h2>
     <div class="stats-grid">
-        <div><span>Market capitalization</span>$USD{{ "{:,.0f}".format(stock['market_capitalization']|int) }}</div>
+        <div><span>Market capitalization</span>${{ "{:,.0f}".format(stock['market_capitalization']|int) }}</div>
         <div><span>Dividends yield (FY)</span>{{ stock['div_yield'] }}</div>
         <div><span>Price to earnings Ratio (TTM)</span>{{ stock['PERatio'] }}</div>
         <div><span>Basic EPS (TTM)</span>{{ stock['EPS'] }}</div>
-        <div><span>Revenue</span>$USD{{ "{:,.0f}".format(stock['revenueTTM']|int) }}</div>
+        <div><span>Revenue</span>${{ "{:,.0f}".format(stock['revenueTTM']|int) }}</div>
         <div><span>Shares float</span>{{ "{:,.0f}".format(stock['shares_outstanding']|int) }}</div>
         <div><span>Beta</span>{{ stock['beta'] }}</div>
     </div>
@@ -595,7 +356,7 @@ h2 {
       <div><span>Address: </span>{{ stock['address'] }}</div>
       <div><span>Fiscal Year End: </span>{{ stock['fiscal_year_end'] }}</div>
       <div><span>Latest Quarter: </span>{{ stock['latest_qtr'] }}</div>
-      <div><span>Market Capitalization: </span>$USD{{ "{:,.0f}".format(stock['market_capitalization']|int) }}</div>
+      <div><span>Market Capitalization: </span>${{ "{:,.0f}".format(stock['market_capitalization']|int) }}</div>
       <div><span>EBITDA: </span>${{ "{:,.0f}".format(stock['EBITDA']|int) }}</div>
       <div><span>Price Earnings Ratio: </span>{{ stock['PERatio'] }}</div>
       <div><span>Performance Ratio: </span>{{ stock['PEGRatio'] }}</div>
